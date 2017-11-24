@@ -11,6 +11,12 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        
+        //函数内部已经启动了一个runloop，始终在循环，没有返回，无法执行到NSLog代码。
+        int res = UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        
+        NSLog(@"--end--");
+        
+        return res;
     }
 }
